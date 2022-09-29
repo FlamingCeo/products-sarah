@@ -63,6 +63,12 @@ class ProductController extends Controller
           "status" => false
         ]);
 
+        return response()->json([
+          'success' => true,
+          'data' => [],
+          'message' => 'New Product added',
+        ], 200);
+
     }
 
     public function update(Request $request){

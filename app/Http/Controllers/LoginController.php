@@ -60,13 +60,22 @@ class LoginController extends Controller
         ]);
         if ($validator->fails())
         {
-            return response(['errors'=>$validator->errors()->all()], 422);
+
+            return response([
+                'success' => false,
+                'message' => "Valdation Error",
+                
+                'data'    =>$validator->errors()->all()
+            ], 422);
         }
         $request['password']=Hash::make($request['password']);
         $request['remember_token'] = Str::random(10);
         $user = User::create($request->toArray());
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-        $response = ['token' => $token];
-        return response($response, 200);
+        return response([
+            'success' => true,
+            'message' => "New Account created",
+            'token' => $token
+        ], 200);
     }
 }
