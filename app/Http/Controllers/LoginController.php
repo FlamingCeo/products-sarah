@@ -43,7 +43,7 @@ class LoginController extends Controller
             } else {
                 $response = ["message" =>'User does not exist',
                 'success' => false,
-                'data'=> ['"Password mismatch']
+                'data'=> ['Password mismatch']
                 ];
                 
                 // $response = ["message" => "Password mismatch",
