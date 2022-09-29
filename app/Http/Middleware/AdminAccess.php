@@ -28,7 +28,11 @@ class AdminAccess
           return $next($request);
 
         }
-  
-      return response('Unauthorized 2.', 401);
+        $response = [
+          "message" => "You are unauthorized to perfomed the action",
+          "status" => false,
+          "data" => []
+        ];
+      return response($response, 401);
     }
 }

@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('login', [LoginController::class, 'authenticate']);
 Route::post('register', [LoginController::class, 'register']);
 
-//Route::get('/list-prod', [ProductController::class, 'index']);
+Route::get('/list-prod', [ProductController::class, 'index']);
 
 Route::group(['middleware' => ['cors', 'json.response']], function () {
         Route::middleware(['auth:api'])->group(function () {
@@ -36,7 +36,7 @@ Route::group(['middleware' => ['cors', 'json.response']], function () {
         Route::post('/create-prod', [ProductController::class, 'create']);
         Route::post('/update-prod', [ProductController::class, 'update']);
         Route::post('/delete-prod',  [ProductController::class, 'delete']);
-        Route::get('/list-prod', [ProductController::class, 'index']);
+        // Route::get('/list-prod', [ProductController::class, 'index']);
     }); 
 });
     // ...
