@@ -28,8 +28,9 @@ Route::post('register', [LoginController::class, 'register']);
 //Route::get('/list-prod', [ProductController::class, 'index']);
 
 Route::group(['middleware' => ['cors', 'json.response']], function () {
-
         Route::middleware(['auth:api'])->group(function () {
+        Route::post('logout', [LoginController::class, 'logout']);
+
          Route::middleware(['auth.admin'])->group(function () {
 
         Route::post('/create-prod', [ProductController::class, 'create']);
