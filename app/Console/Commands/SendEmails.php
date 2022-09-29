@@ -51,7 +51,7 @@ class SendEmails extends Command
         foreach ($productToQueue as $key => $value) {
             # code...
             $prod = Products::where("id",$value)->first();
-            $name = $prod->name;
+            $name = $prod? $prod->name: "No info available";
             //dd($name);
 
             echo "1";
